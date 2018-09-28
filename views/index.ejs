@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" media="screen" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="d-flex flex-row">
+        <div class="row text-center" style="height:100vh; width:100%;background-color: #84919c; margin:0">
+          <div class="d-flex flex-column justify-content-center col-lg-6" style="height:100%;color:white;font-size:1.8em;">  Discover your Google Drive</div>
+          <button id="signIn" class="d-flex flex-column justify-content-center btn col-lg-6 btn-primary btn-lg" >Let's continue with your Google Account</button>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(()=>{
+        $('#signIn').on('click',()=>{
+            if(window.localStorage.token != undefined && window.localStorage.token!=null)
+            window.location.href=`/drive?at=${window.localStorage.token}`;
+            else
+            window.location.href='/drive';
+        })
+    })
+</script>
+</html>
